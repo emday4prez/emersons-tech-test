@@ -23,7 +23,8 @@ It doesn't need to be an exact replica of the above design but it needs the foll
 - Total growth %
 - Revenue graph
 - Top Selling products
-and anything else you can think of adding this this page.
+and anything else you can think of adding this page.
+
 You will also need to fill in the dashboard's dummy navigation bar, complete with a notifications modal.
 When a customer registers you are required to have their information stored in state and redirected to the dashboard.
 You will be required to have 1 hardcoded login email & password.
