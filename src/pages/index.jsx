@@ -1,19 +1,19 @@
 import Head from 'next/head'
 
-
 export default function Home() {
   return (
     <>
       <Head>
         <title>Create Next App</title>
-        <meta name='description' content='create-react-app converted to next app' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
+        <meta
+          name="description"
+          content="create-react-app converted to next app"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='min-h-screen'>
-       <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+      <main className="flex min-h-screen items-center justify-center">
+        sales dash
       </main>
     </>
   )
