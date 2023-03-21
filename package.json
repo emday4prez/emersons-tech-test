@@ -3,7 +3,6 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@supabase/supabase-js": "^2.12.0",
     "next": "13.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -12,9 +11,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "db:migrate": "npx prisma migrate dev --name user-entity --create-only && yarn prisma generate",
-    "db:push": "npx prisma db push"
+    "lint": "next lint"
   },
   "eslintConfig": {
     "extends": [
