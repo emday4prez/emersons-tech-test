@@ -15,6 +15,7 @@ import {
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import Totals from '../components/dashboard/Totals'
 import GrowthChart from '../components/dashboard/GrowthChart'
+import TopProducts from '../components/dashboard/TopProducts'
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -279,6 +280,7 @@ export default function Sales() {
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <Totals />
                 <GrowthChart />
+                <TopProducts />
               </div>
             </div>
           </main>
