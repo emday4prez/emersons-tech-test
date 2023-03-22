@@ -1,4 +1,3 @@
-import React from 'react'
 import { ResizableBox as ReactResizableBox } from 'react-resizable'
 
 import 'react-resizable/css/styles.css'
