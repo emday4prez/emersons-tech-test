@@ -11,8 +11,8 @@ const totals = [
     increase: '-4%',
   },
   {
-    name: 'Total Transaction',
-    amount: '495,809',
+    name: 'New Customers',
+    amount: '89,741',
     increase: '8%',
   },
   {
@@ -26,14 +26,14 @@ export default function Totals() {
   return (
     <ul
       role="list"
-      className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      className="grid grid-cols-1 gap-2 sm:grid-cols-4 md:gap-3 lg:gap-6 "
     >
       {totals.map((total) => (
         <li
           key={total.name}
           className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
         >
-          <div className="flex w-full items-center justify-between space-x-6 p-6">
+          <div className="flex w-full items-center justify-between p-3 md:p-6">
             <div className="flex-1 truncate">
               <div className="flex items-center space-x-3">
                 <h3 className="truncate text-sm font-medium text-gray-900">
