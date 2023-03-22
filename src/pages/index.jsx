@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Button from '../components/button'
 export default function Home() {
   return (
@@ -13,17 +14,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen items-center justify-center">
-        <Button
-          label="login"
-          type="button"
-          className="rounded-md bg-indigo-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        />
+        <Link href="/login">
+          <Button
+            label="login"
+            type="button"
+            className="rounded-md bg-indigo-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          />
+        </Link>
+
         <div className="m-2"></div>
-        <Button
-          label="sign up"
-          type="button"
-          className="rounded-md bg-indigo-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        />
+        <Link href="/signup">
+          <Button
+            label="sign up"
+            type="button"
+            className="rounded-md bg-indigo-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          />
+        </Link>
       </main>
     </>
   )
