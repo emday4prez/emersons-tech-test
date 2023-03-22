@@ -1,18 +1,5 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import { Fragment, useState } from 'react'
+
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   Bars3BottomLeftIcon,
@@ -26,6 +13,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
+import Totals from '../components/dashboard/Totals'
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -45,7 +33,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Sales() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -288,7 +276,7 @@ export default function Example() {
                 </h1>
               </div>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                {/* Your content */}
+                <Totals />
               </div>
             </div>
           </main>
