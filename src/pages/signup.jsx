@@ -1,6 +1,23 @@
+import React, { useContext, useState } from 'react'
+import { UserContext } from '../path/to/UserContext'
 import Button from '../components/button'
 
-function Signup() {
+function RegisterUser() {
+  const { registerUser } = useContext(UserContext)
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const newUser = { name, email, password }
+    registerUser(newUser)
+    setName('')
+    setEmail('')
+    setPassword('')
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <h1 className="mb-10 -mt-20 text-xl">Sign Up</h1>
@@ -13,11 +30,30 @@ function Signup() {
             Name
           </label>
           <input
+            value={name}
             type="text"
             name="name"
             id="name"
             className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+            onChange={(event) => setName(event.target.value)}
             placeholder="Jane Smith"
+          />
+        </div>
+        <div className="relative rounded-md rounded-b-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-indigo-600">
+          <label
+            htmlFor="name"
+            className="block text-xs font-medium text-gray-900"
+          >
+            E-mail
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+            placeholder="jane@hotmail.com"
           />
         </div>
         <div className="relative rounded-md rounded-t-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-indigo-600">
@@ -31,6 +67,8 @@ function Signup() {
             type="password"
             name="password"
             id="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
             className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
           />
         </div>
@@ -44,4 +82,4 @@ function Signup() {
   )
 }
 
-export default Signup
+export default RegisterUser
