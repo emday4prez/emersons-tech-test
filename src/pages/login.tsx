@@ -1,17 +1,23 @@
-import { useState } from 'react'
-import Button from '../components/button'
+import { useState, MouseEvent } from 'react'
+import { useRouter } from 'next/router'
+import { useUser } from '../context/index'
 
-const onLogin = () => {
-  console.log('login')
-}
 function Login() {
-  const { loginUser } = useContext(UserContext)
+  const router = useRouter()
+  const { loginUser, currentUser } = useUser()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleLogin = async (e: React.MouseEvent) => {
     e.preventDefault()
-    loginUser(email, password)
+    await loginUser(email, password)
+    router.push('/dashboard')
+  }
+
+  if (currentUser) {
+    router.push('/dashboard')
+    return null
   }
 
   return (
@@ -52,14 +58,14 @@ function Login() {
           />
         </div>
       </div>
-      <Link href="dashboard">
-        <Button
-          onClick={handleSubmit}
-          label="login"
-          type="button"
-          className="mt-10 rounded-md bg-indigo-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        />
-      </Link>
+
+      <button
+        onClick={handleLogin}
+        type="button"
+        className="mt-10 rounded-md bg-indigo-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        login{' '}
+      </button>
     </div>
   )
 }
