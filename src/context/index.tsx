@@ -12,7 +12,7 @@ interface User {
 interface UserContextType {
   currentUser: User | null
   loginUser: (email: string, password: string) => void
-
+  registerUser: (user: User) => void
   logoutUser: () => void
   users: User[]
 }
@@ -42,7 +42,7 @@ const initialUsers: User[] = [
 export const UserContext = createContext<UserContextType>({
   currentUser: null,
   loginUser: () => {},
-
+  registerUser: () => {},
   logoutUser: () => {},
   users: initialUsers,
 })
@@ -53,21 +53,19 @@ type Props = {
 export function UserProvider({ children }: Props): React.ReactNode {
   const [currentUser, setCurrentUser] = useState<User | null>(null)
   const [users, setUsers] = useState<User[]>(initialUsers)
-  // Define the loginUser function
+
   const loginUser = (email: string, password: string) => {
-    // Find the user with the matching email and password
     const user = users.find(
       (user) => user.email === email && user.password === password
     )
-    const registerUser = (user: User) => {
-      setUsers([...users, user])
-    }
-    // If a user was found, update the currentUser in the context
     if (user) {
       setCurrentUser(user)
     }
   }
 
+  const registerUser = (user: User) => {
+    setUsers([...users, user])
+  }
   // Define the logoutUser function
   const logoutUser = () => {
     setCurrentUser(null)
@@ -78,7 +76,7 @@ export function UserProvider({ children }: Props): React.ReactNode {
     currentUser,
     loginUser,
     logoutUser,
-
+    registerUser,
     users,
   }
 
