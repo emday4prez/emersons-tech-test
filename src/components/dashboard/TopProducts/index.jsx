@@ -24,7 +24,7 @@ export default function TopProducts() {
         className="relative flex items-center justify-evenly space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
       >
         {files.map((file) => (
-          <li key={file.source} className="relative">
+          <li key={file.title} className="relative">
             <div className=" group  aspect-w-10 aspect-h-7 block h-48 w-40 overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
               <Image
                 src={file.source}

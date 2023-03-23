@@ -1,5 +1,5 @@
-import { Fragment, useState } from 'react'
-
+import { Fragment, useState, useContext } from 'react'
+import { UserContext } from '../context/index'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   Bars3BottomLeftIcon,
@@ -37,6 +37,7 @@ function classNames(...classes) {
 
 export default function Sales() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const { currentUser, logoutUser } = useContext(UserContext)
 
   return (
     <>
@@ -108,6 +109,7 @@ export default function Sales() {
                       alt="Your Company"
                     />
                   </div>
+
                   <div className="mt-5 h-0 flex-1 overflow-y-auto">
                     <nav className="space-y-1 px-2">
                       {navigation.map((item) => (
@@ -133,6 +135,7 @@ export default function Sales() {
                           {item.name}
                         </a>
                       ))}
+                      <div></div>
                     </nav>
                   </div>
                 </Dialog.Panel>
@@ -274,7 +277,7 @@ export default function Sales() {
             <div className="py-6">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <h1 className="text-2xl font-semibold text-gray-900">
-                  Sales Dashboard
+                  Sales Dashboard {currentUser?.name}
                 </h1>
               </div>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
