@@ -34,7 +34,7 @@ When a customer registers you are required to have their information stored in s
 You will be required to have 1 hardcoded login email & password.
 You will be required to have a log-out button which clears state and redirects you to the login page.
 
-# Checklist
+## Checklist
 
 Required:
 

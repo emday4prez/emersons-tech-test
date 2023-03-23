@@ -1,5 +1,5 @@
-import { Fragment, useState } from 'react'
-
+import { Fragment, useState, useContext } from 'react'
+import { UserContext } from '../_app.tsx'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   Bars3BottomLeftIcon,
@@ -37,7 +37,7 @@ function classNames(...classes) {
 
 export default function Sales() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
-
+  const { currentUser, logoutUser } = useContext(UserContext)
   return (
     <>
       {/*
@@ -107,6 +107,10 @@ export default function Sales() {
                       src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                       alt="Your Company"
                     />
+                  </div>
+                  <div>
+                    <h2>{currentUser?.name}</h2>
+                    <button onClick={logoutUser}>Logout</button>
                   </div>
                   <div className="mt-5 h-0 flex-1 overflow-y-auto">
                     <nav className="space-y-1 px-2">
