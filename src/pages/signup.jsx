@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react'
-import { UserContext } from '../path/to/UserContext'
+import { useRouter } from 'next/router'
+import { UserContext } from '../context/index'
 import Button from '../components/button'
+import { useUser } from '../context/index'
 
 function RegisterUser() {
   const { registerUser } = useContext(UserContext)
-
+  const { loginUser, currentUser } = useUser()
+  const router = useRouter()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -13,9 +16,15 @@ function RegisterUser() {
     event.preventDefault()
     const newUser = { name, email, password }
     registerUser(newUser)
+    loginUser(email, password)
     setName('')
     setEmail('')
     setPassword('')
+    router.push('/dashboard')
+  }
+  if (currentUser) {
+    router.push('/dashboard')
+    return null
   }
 
   return (
@@ -39,7 +48,7 @@ function RegisterUser() {
             placeholder="Jane Smith"
           />
         </div>
-        <div className="relative rounded-md rounded-b-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-indigo-600">
+        <div className="relative px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-indigo-600">
           <label
             htmlFor="name"
             className="block text-xs font-medium text-gray-900"
@@ -76,6 +85,7 @@ function RegisterUser() {
       <Button
         label="sign up"
         type="button"
+        onClick={handleSubmit}
         className="mt-10 rounded-md bg-indigo-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       />
     </div>
