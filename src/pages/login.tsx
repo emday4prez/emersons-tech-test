@@ -26,12 +26,13 @@ function Login() {
       <div className="isolate w-4/5 -space-y-px rounded-md shadow-sm md:w-2/5 lg:w-1/4">
         <div className="relative rounded-md rounded-b-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-indigo-600">
           <label
-            htmlFor="name"
+            htmlFor="email"
             className="block text-xs font-medium text-gray-900"
           >
             E-Mail
           </label>
           <input
+            data-testid="email-input"
             type="email"
             name="email"
             id="email"
@@ -43,7 +44,7 @@ function Login() {
         </div>
         <div className="relative rounded-md rounded-t-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-indigo-600">
           <label
-            htmlFor="job-title"
+            htmlFor="password"
             className="block text-xs font-medium text-gray-900"
           >
             Password
