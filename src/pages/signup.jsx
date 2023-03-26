@@ -43,6 +43,7 @@ function RegisterUser() {
             type="text"
             name="name"
             id="name"
+            data-testid="name-input"
             className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
             onChange={(event) => setName(event.target.value)}
             placeholder="Jane Smith"
@@ -59,6 +60,7 @@ function RegisterUser() {
             type="email"
             name="email"
             id="email"
+            data-testid="email-input"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
@@ -77,6 +79,7 @@ function RegisterUser() {
             name="password"
             id="password"
             value={password}
+            data-testid="password-input"
             onChange={(event) => setPassword(event.target.value)}
             className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
           />

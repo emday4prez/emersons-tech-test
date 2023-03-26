@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Emerson's Test</title>
         <meta
           name="description"
           content="create-react-app converted to next app"
