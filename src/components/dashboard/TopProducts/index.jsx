@@ -17,7 +17,10 @@ const files = [
 
 export default function TopProducts() {
   return (
-    <div className="min-h-20 grid grid-cols-1 gap-4 pt-6 ">
+    <div
+      className="min-h-20 grid grid-cols-1 gap-4 pt-6"
+      data-testid="top-products"
+    >
       <h1>Top Products</h1>
       <ul
         role="list"

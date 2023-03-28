@@ -11,5 +11,8 @@ describe('dashboard page', () => {
     expect(screen.getByTestId('sidebar')).toBeInTheDocument()
     expect(screen.getByTestId('search')).toBeInTheDocument()
     expect(screen.getByTestId('sales-dash')).toBeInTheDocument()
+    expect(screen.getByTestId('totals-list')).toBeInTheDocument()
+    expect(screen.getByTestId('top-products')).toBeInTheDocument()
+    expect(screen.getByTestId('charts')).toBeInTheDocument()
   })
 })

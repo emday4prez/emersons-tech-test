@@ -27,6 +27,7 @@ export default function Totals() {
     <ul
       role="list"
       className="grid grid-cols-1 gap-2 sm:grid-cols-4 md:gap-3 lg:gap-6 "
+      data-testid="totals-list"
     >
       {totals.map((total) => (
         <li
