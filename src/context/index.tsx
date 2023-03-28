@@ -65,6 +65,11 @@ export function UserProvider({ children }: Props): React.ReactNode {
 
   const registerUser = (user: User) => {
     setUsers([...users, user])
+    setCurrentUser(user)
+    console.log('current user', currentUser)
+    if (currentUser) {
+      loginUser(currentUser.email, currentUser.password)
+    }
   }
 
   const logoutUser = () => {

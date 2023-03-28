@@ -14,9 +14,13 @@ function Login() {
   const handleLogin = async (e: React.MouseEvent) => {
     e.preventDefault()
     setLoading(true)
-    await loginUser(email, password)
+    loginUser(email, password)
     setLoading(false)
-    router.push('/dashboard')
+    if (currentUser) {
+      router.push('/dashboard')
+    } else {
+      alert('username or password incorrect')
+    }
   }
 
   if (currentUser) {
