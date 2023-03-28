@@ -27,11 +27,13 @@ export default function Totals() {
     <ul
       role="list"
       className="grid grid-cols-1 gap-2 sm:grid-cols-4 md:gap-3 lg:gap-6 "
+      data-testid="totals-list"
     >
       {totals.map((total) => (
         <li
           key={total.name}
           className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
+          data-testid="total-item"
         >
           <div className="flex w-full items-center justify-between p-3 md:p-6">
             <div className="flex-1 truncate">
