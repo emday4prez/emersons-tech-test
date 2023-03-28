@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
-
+import { useRouter } from 'next/router'
 // Define the shape of a user object
 interface User {
   id: number
@@ -53,13 +53,16 @@ type Props = {
 export function UserProvider({ children }: Props): React.ReactNode {
   const [currentUser, setCurrentUser] = useState<User | null>(null)
   const [users, setUsers] = useState<User[]>(initialUsers)
-
+  const router = useRouter()
   const loginUser = (email: string, password: string) => {
     const user = users.find(
       (user) => user.email === email && user.password === password
     )
     if (user) {
       setCurrentUser(user)
+      router.push('/dashboard')
+    } else {
+      alert('username or password incorrect')
     }
   }
 

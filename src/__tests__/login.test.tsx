@@ -1,9 +1,5 @@
 import Login from '../pages/login'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { useRouter } from 'next/router'
-import { useUser } from '../context/index'
-import mockRouter from 'next-router-mock'
+import { render, screen } from '@testing-library/react'
 
 jest.mock('next/router', () => require('next-router-mock'))
 

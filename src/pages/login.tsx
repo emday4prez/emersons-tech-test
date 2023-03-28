@@ -1,7 +1,6 @@
 import { useState, MouseEvent } from 'react'
 import { useRouter } from 'next/router'
 import { useUser } from '../context/index'
-import { Http2ServerRequest } from 'http2'
 
 function Login() {
   const router = useRouter()
@@ -16,11 +15,6 @@ function Login() {
     setLoading(true)
     loginUser(email, password)
     setLoading(false)
-    if (currentUser) {
-      router.push('/dashboard')
-    } else {
-      alert('username or password incorrect')
-    }
   }
 
   if (currentUser) {

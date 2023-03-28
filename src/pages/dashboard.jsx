@@ -1,6 +1,7 @@
 import { Fragment, useState, useContext } from 'react'
 import { UserContext } from '../context/index'
 import { Dialog, Menu, Transition } from '@headlessui/react'
+import { useRouter } from 'next/router'
 import {
   Bars3BottomLeftIcon,
   BellIcon,
@@ -32,8 +33,11 @@ function classNames(...classes) {
 
 export default function Sales() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const router = useRouter()
   const { currentUser, logoutUser } = useContext(UserContext)
-
+  if (!currentUser) {
+    router.push('/')
+  }
   const userNavigation = [
     { name: 'Your Profile', href: '#' },
     { name: 'Settings', href: '#' },
