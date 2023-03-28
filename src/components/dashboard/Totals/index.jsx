@@ -33,6 +33,7 @@ export default function Totals() {
         <li
           key={total.name}
           className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
+          data-testid="total-item"
         >
           <div className="flex w-full items-center justify-between p-3 md:p-6">
             <div className="flex-1 truncate">
