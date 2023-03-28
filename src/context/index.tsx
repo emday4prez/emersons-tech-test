@@ -66,7 +66,7 @@ export function UserProvider({ children }: Props): React.ReactNode {
   const registerUser = (user: User) => {
     setUsers([...users, user])
   }
-  // Define the logoutUser function
+
   const logoutUser = () => {
     setCurrentUser(null)
   }

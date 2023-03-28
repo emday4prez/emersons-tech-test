@@ -20,6 +20,7 @@ function RegisterUser() {
     setName('')
     setEmail('')
     setPassword('')
+
     router.push('/dashboard')
   }
   if (currentUser) {
