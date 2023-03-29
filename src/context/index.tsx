@@ -46,11 +46,13 @@ export const UserContext = createContext<UserContextType>({
   logoutUser: () => {},
   users: initialUsers,
 })
-type Props = {
-  children?: React.ReactNode
+type ProviderProps = {
+  children: React.ReactNode
 }
 // Define a provider component for the user context
-export function UserProvider({ children }: Props): React.ReactNode {
+export function UserProvider({
+  children,
+}: ProviderProps): React.ReactElement | null {
   const [currentUser, setCurrentUser] = useState<User | null>(null)
   const [users, setUsers] = useState<User[]>(initialUsers)
   const router = useRouter()
@@ -86,13 +88,17 @@ export function UserProvider({ children }: Props): React.ReactNode {
     logoutUser,
     registerUser,
     users,
-  }
+  } as const
 
-  return (
-    <UserContext.Provider value={userContextValue}>
-      {children}
-    </UserContext.Provider>
-  )
+  if (currentUser !== null && currentUser !== undefined) {
+    return (
+      <UserContext.Provider value={userContextValue}>
+        {children}
+      </UserContext.Provider>
+    )
+  } else {
+    return null
+  }
 }
 
 // Define a custom hook to simplify accessing the user context

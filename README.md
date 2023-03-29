@@ -18,7 +18,7 @@ You may have as much time as you wish to complete the following task. Take your 
 ## Brief
 
 You are hired to create a `Login`, `Registration` and `dashboard` page by a company.
-Your application needs to be able to register new users, log in existing users and display them with a dashboard analytics page: https://dribbble.com/shots/20780228-LOOP-Sales-Dashboard-Animation
+Your application needs to be able to register new users, log in existing users and display them with a dashboard analytics page: [https://dribbble.com/shots/20780228-LOOP-Sales-Dashboard-Animation]
 It doesn't need to be an exact replica of the above design but it needs the following stats:
 
 - Total revenue $
