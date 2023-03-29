@@ -8,11 +8,13 @@ function Login() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleLogin = async (e: React.MouseEvent) => {
     e.preventDefault()
-    await loginUser(email, password)
-    router.push('/dashboard')
+    setLoading(true)
+    loginUser(email, password)
+    setLoading(false)
   }
 
   if (currentUser) {
@@ -58,6 +60,7 @@ function Login() {
             className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
           />
         </div>
+        {loading ? <h2>...loading</h2> : ''}
       </div>
 
       <button

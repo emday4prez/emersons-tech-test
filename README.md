@@ -42,9 +42,9 @@ Required:
 - [x] Create a Registration page
 - [x] Create a Dashboard page
 - [x] Create tests for each page
-- [ ] Create tests for each component created
+- [x] Create tests for each component created
 - [x] Each page has responsive design and looks good on mobile, tablet and desktop devices
-- [ ] The application has state management and the logic is fully implemented
+- [x] The application has state management and the logic is fully implemented
 
 Optional:
 

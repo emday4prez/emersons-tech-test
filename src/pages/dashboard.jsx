@@ -1,6 +1,7 @@
 import { Fragment, useState, useContext } from 'react'
 import { UserContext } from '../context/index'
 import { Dialog, Menu, Transition } from '@headlessui/react'
+import { useRouter } from 'next/router'
 import {
   Bars3BottomLeftIcon,
   BellIcon,
@@ -25,11 +26,6 @@ const navigation = [
   { name: 'Documents', href: '#', icon: InboxIcon, current: false },
   { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
 ]
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -37,7 +33,16 @@ function classNames(...classes) {
 
 export default function Sales() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const router = useRouter()
   const { currentUser, logoutUser } = useContext(UserContext)
+  if (!currentUser) {
+    router.push('/')
+  }
+  const userNavigation = [
+    { name: 'Your Profile', href: '#' },
+    { name: 'Settings', href: '#' },
+    { name: 'Sign out', href: '/', onClick: logoutUser },
+  ]
 
   return (
     <>
@@ -94,7 +99,7 @@ export default function Sales() {
                       </button>
                     </div>
                   </Transition.Child>
-                  <div className="flex flex-shrink-0 items-center px-4">
+                  <div className="flex flex-shrink-0 items-center px-4 text-gray-800">
                     <img
                       className="h-8 w-auto"
                       src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
@@ -252,6 +257,7 @@ export default function Sales() {
                           {({ active }) => (
                             <a
                               href={item.href}
+                              onClick={item.onClick}
                               className={classNames(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700'
@@ -272,12 +278,10 @@ export default function Sales() {
           <main className="flex-1">
             <div className="py-6">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <h1
-                  data-testid="sales-dash"
-                  className="text-2xl font-semibold text-gray-900"
-                >
-                  Sales Dashboard {currentUser?.name}
-                </h1>
+                <div className="flex justify-between text-2xl font-semibold text-gray-900">
+                  <h1 data-testid="sales-dash">Sales Dashboard</h1>
+                  <h2>{currentUser?.name}</h2>
+                </div>
               </div>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <Totals />

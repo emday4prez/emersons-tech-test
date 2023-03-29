@@ -14,12 +14,14 @@ function RegisterUser() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const newUser = { name, email, password }
+    const id = Math.random() * 1000000
+    const newUser = { name, email, password, id }
     registerUser(newUser)
-    loginUser(email, password)
+
     setName('')
     setEmail('')
     setPassword('')
+
     router.push('/dashboard')
   }
   if (currentUser) {
