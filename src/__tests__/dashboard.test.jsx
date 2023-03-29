@@ -15,4 +15,11 @@ describe('dashboard page', () => {
     expect(screen.getByTestId('top-products')).toBeInTheDocument()
     expect(screen.getByTestId('charts')).toBeInTheDocument()
   })
+
+  it('displays profile menu', () => {
+    render(<Dash />)
+    const profileMenuButton = screen.getByTestId('profile-menu-button')
+    fireEvent.click(profileMenuButton)
+    expect(screen.getByText('Sign out')).toBeInTheDocument()
+  })
 })
